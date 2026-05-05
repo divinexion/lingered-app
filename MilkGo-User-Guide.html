@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>MilkGo — Complete Customer User Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* ─── Page setup ─── */
+  @page {
+    size: A4;
+    margin: 18mm 16mm 22mm 16mm;
+    @bottom-center {
+      content: "MilkGo · Customer User Manual · Page " counter(page) " / " counter(pages);
+      font-family: 'Poppins', sans-serif;
+      font-size: 8.5pt;
+      color: #6b7280;
+      letter-spacing: 0.3px;
+    }
+  }
+  @page :first { margin: 0; @bottom-center { content: ""; } }
+  @page no-footer { @bottom-center { content: ""; } }
+
+  /* ─── Reset + base ─── */
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+    font-family: 'Inter', 'Helvetica Neue', Arial, 'Noto Sans Gujarati', 'Noto Sans Devanagari', sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+  }
+
+  /* ─── Logo SVG inline component ─── */
+  .logo-bottle {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1.3em;
+  }
+
+  /* ─── Cover page ─── */
+  .cover {
+    page: no-footer;
+    page-break-after: always;
+    width: 210mm;
+    height: 297mm;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background:
+      radial-gradient(circle at 80% 10%, rgba(255,255,255,0.15) 0, transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(255,255,255,0.12) 0, transparent 35%),
+      linear-gradient(135deg, #16a34a 0%, #15803d 45%, #064e3b 100%);
+  }
+  .cover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06) 1.5px, transparent 2px),
+      radial-gradient(circle at 70% 60%, rgba(255,255,255,0.05) 1.5px, transparent 2px),
+      radial-gradient(circle at 40% 80%, rgba(255,255,255,0.05) 1.5px, transparent 2px);
+    background-size: 60px 60px, 90px 90px, 120px 120px;
+    opacity: 0.7;
+  }
+  .cover-deco {
+    position: absolute;
+    right: -10mm;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120mm;
+    height: 120mm;
+    opacity: 0.08;
+  }
+  .cover-inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 26mm 22mm 22mm 22mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22mm;
+  }
+  .cover-brand .bottle {
+    width: 38px;
+    height: 50px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.25));
+  }
+  .cover-brand .name {
+    font-family: 'Audiowide', cursive;
+    font-size: 26pt;
+    letter-spacing: 3px;
+    color: #fff;
+  }
+  .cover-tagline {
+    font-family: 'Caveat', cursive;
+    font-size: 18pt;
+    margin-bottom: 8mm;
+    color: #d1fae5;
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .cover-title {
+    font-family: 'Audiowide', cursive;
+    font-size: 50pt;
+    line-height: 1.05;
+    margin: 0 0 10mm 0;
+    color: #fff;
+    text-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  }
+  .cover-sub {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 14pt;
+    line-height: 1.5;
+    max-width: 150mm;
+    color: rgba(255,255,255,0.95);
+  }
+  .cover-mid {
+    margin-top: 14mm;
+    border-left: 3px solid rgba(255,255,255,0.55);
+    padding-left: 8mm;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 11pt;
+    line-height: 1.6;
+    max-width: 130mm;
+  }
+  .cover-mid .em { font-weight: 600; color: #ecfdf5; }
+  .cover-bottom {
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 6mm;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10.5pt;
+  }
+  .cover-bottom .lbl {
+    font-family: 'Audiowide', cursive;
+    font-size: 10pt;
+    letter-spacing: 2px;
+    color: #fef3c7;
+    margin-bottom: 4px;
+  }
+  .cover-bottom .v { opacity: 0.9; text-align: right; }
+
+  /* ─── Section divider (Part X) ─── */
+  .part {
+    page-break-before: always;
+    page-break-after: always;
+    width: 210mm;
+    height: 257mm;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    page: no-footer;
+  }
+  .part-1 { background: linear-gradient(135deg, #16a34a 0%, #064e3b 100%); }
+  .part-2 { background: linear-gradient(135deg, #0d9488 0%, #115e59 100%); }
+  .part-3 { background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%); }
+  .part-4 { background: linear-gradient(135deg, #d97706 0%, #92400e 100%); }
+  .part-5 { background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%); }
+  .part::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.12) 0, transparent 30%),
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.10) 0, transparent 35%);
+  }
+  .part-deco {
+    position: absolute;
+    right: 8mm;
+    bottom: 6mm;
+    width: 80mm;
+    opacity: 0.10;
+  }
+  .part-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 18mm;
+  }
+  .part-eyebrow {
+    font-family: 'Audiowide', cursive;
+    font-size: 12pt;
+    letter-spacing: 8px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 8mm;
+  }
+  .part-title {
+    font-family: 'Audiowide', cursive;
+    font-size: 40pt;
+    line-height: 1.08;
+    margin-bottom: 8mm;
+    text-shadow: 0 6px 22px rgba(0,0,0,0.3);
+  }
+  .part-blurb {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 13pt;
+    line-height: 1.5;
+    max-width: 140mm;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.92);
+  }
+  .part-icons {
+    margin-top: 12mm;
+    font-size: 26pt;
+    letter-spacing: 14px;
+  }
+
+  /* ─── About / TOC page ─── */
+  .toc-page {
+    page-break-after: always;
+    padding-top: 6mm;
+  }
+  h1.toc-title, h1.section {
+    font-family: 'Audiowide', cursive;
+    font-size: 22pt;
+    color: #064e3b;
+    border-bottom: 3px solid #16a34a;
+    padding-bottom: 6px;
+    margin: 0 0 8px 0;
+    letter-spacing: 1.2px;
+  }
+  .toc-list { columns: 2; column-gap: 14mm; font-family: 'Poppins', sans-serif; font-size: 10pt; margin-top: 8mm; }
+  .toc-list .toc-part {
+    font-family: 'Audiowide', cursive;
+    font-size: 11pt;
+    color: #064e3b;
+    margin: 8px 0 6px 0;
+    padding: 4px 8px;
+    background: linear-gradient(90deg, #d1fae5, transparent);
+    border-radius: 4px;
+    break-after: avoid;
+    letter-spacing: 0.5px;
+  }
+  .toc-list .toc-item { margin: 2px 0; padding-left: 10px; }
+  .toc-list .toc-item .num { font-weight: 600; color: #15803d; margin-right: 4px; }
+
+  /* ─── Headings ─── */
+  h1.chapter {
+    page-break-before: always;
+    font-family: 'Audiowide', cursive;
+    font-size: 22pt;
+    color: #064e3b;
+    margin: 0 0 14px 0;
+    padding: 8px 14px 8px 14px;
+    background: linear-gradient(90deg, #ecfdf5, #fff);
+    border-left: 6px solid #16a34a;
+    border-radius: 4px;
+    letter-spacing: 1.2px;
+  }
+  h1.chapter .ch-num {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    color: #15803d;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  h2 {
+    font-family: 'Audiowide', cursive;
+    font-size: 13pt;
+    color: #15803d;
+    margin: 18px 0 6px 0;
+    letter-spacing: 0.6px;
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid #d1fae5;
+  }
+  h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11.2pt;
+    color: #0f5132;
+    margin: 14px 0 4px 0;
+    font-weight: 600;
+  }
+
+  /* ─── Body ─── */
+  p { margin: 6px 0; font-family: 'Inter', sans-serif; }
+  ul, ol { margin: 6px 0; padding-left: 22px; font-family: 'Inter', sans-serif; }
+  li { margin: 3px 0; }
+  strong { color: #0f172a; font-weight: 600; }
+  em { color: #475569; }
+  code, .mono {
+    font-family: 'SF Mono', 'Menlo', monospace;
+    background: #f1f5f9;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 9.5pt;
+    color: #0f172a;
+  }
+
+  /* ─── Tables ─── */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  th, td {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: linear-gradient(90deg, #16a34a, #15803d);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 9.5pt;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    border-bottom: none;
+  }
+  tr:nth-child(even) td { background: #f9fafb; }
+  tr:last-child td { border-bottom: none; }
+
+  /* ─── Blockquote / sample messages ─── */
+  blockquote {
+    margin: 10px 0;
+    padding: 10px 14px;
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-left: 4px solid #16a34a;
+    border-radius: 6px;
+    color: #14532d;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-size: 10pt;
+    box-shadow: 0 1px 4px rgba(22, 163, 74, 0.1);
+  }
+
+  /* ─── Callouts ─── */
+  .callout {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 10pt;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .callout .icon { font-size: 18pt; line-height: 1; flex-shrink: 0; }
+  .callout.tip { background: #ecfeff; border-left: 4px solid #06b6d4; color: #0c4a6e; }
+  .callout.warn { background: #fef3c7; border-left: 4px solid #f59e0b; color: #78350f; }
+  .callout.success { background: #dcfce7; border-left: 4px solid #16a34a; color: #14532d; }
+  .callout.info { background: #ede9fe; border-left: 4px solid #7c3aed; color: #4c1d95; }
+
+  /* ─── Hero callout for chapter intros ─── */
+  .hero-card {
+    background: linear-gradient(135deg, #064e3b, #16a34a);
+    color: #fff;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 8px 0 16px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11pt;
+    box-shadow: 0 6px 18px rgba(22, 163, 74, 0.25);
+  }
+  .hero-card .quote {
+    font-family: 'Caveat', cursive;
+    font-size: 18pt;
+    line-height: 1.3;
+    color: #fef3c7;
+  }
+
+  /* ─── Step block (numbered with circle) ─── */
+  .steps {
+    counter-reset: step;
+    margin: 10px 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 36px;
+    margin: 10px 0;
+    font-family: 'Inter', sans-serif;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #16a34a, #064e3b);
+    color: #fff;
+    font-family: 'Audiowide', cursive;
+    font-size: 11pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  /* ─── Pill / tag ─── */
+  .pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    background: #ecfdf5;
+    color: #14532d;
+    border: 1px solid #a7f3d0;
+  }
+  .pill.warn { background: #fef3c7; color: #78350f; border-color: #fcd34d; }
+  .pill.info { background: #ede9fe; color: #4c1d95; border-color: #c4b5fd; }
+
+  /* ─── Footer end note ─── */
+  .end-note {
+    margin-top: 20mm;
+    padding: 12mm 8mm;
+    text-align: center;
+    background: linear-gradient(135deg, #ecfdf5, #f0fdf4);
+    border-radius: 12px;
+    border: 1px dashed #16a34a;
+  }
+  .end-note .head {
+    font-family: 'Audiowide', cursive;
+    font-size: 18pt;
+    color: #064e3b;
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
+  }
+  .end-note .sig {
+    font-family: 'Caveat', cursive;
+    font-size: 16pt;
+    color: #15803d;
+    margin-top: 6mm;
+  }
+  .end-note p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 10.5pt;
+    color: #475569;
+    margin: 4px 0;
+  }
+
+  /* ─── Misc ─── */
+  hr { border: none; border-top: 1px dashed #d1d5db; margin: 14px 0; }
+  .small { font-size: 9pt; color: #6b7280; }
+  .accent-caveat { font-family: 'Caveat', cursive; color: #15803d; font-size: 14pt; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- COVER -->
+<!-- ============================================================ -->
+<section class="cover">
+  <svg class="cover-deco" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <!-- giant background bottle -->
+    <path fill="white" d="M35 5 h30 v15 h-5 v8 c0 4 8 12 8 22 v70 c0 5 -3 8 -8 8 h-30 c-5 0 -8 -3 -8 -8 v-70 c0 -10 8 -18 8 -22 v-8 h-5 z"/>
+  </svg>
+  <div class="cover-inner">
+    <div>
+      <div class="cover-brand">
+        <svg class="bottle" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+          <path fill="white" d="M35 5 h30 v15 h-5 v8 c0 4 8 12 8 22 v70 c0 5 -3 8 -8 8 h-30 c-5 0 -8 -3 -8 -8 v-70 c0 -10 8 -18 8 -22 v-8 h-5 z"/>
+        </svg>
+        <div class="name">MILKGO</div>
+      </div>
+      <div class="cover-tagline">~ milk business, now simple ~</div>
+      <h1 class="cover-title">Customer<br/>User Manual</h1>
+      <div class="cover-sub">Your friendly, end‑to‑end guide to running your dairy business with MilkGo — deliveries, billing, payments, WhatsApp, drivers and more.</div>
+      <div class="cover-mid">
+        <span class="em">For</span> tabela owners, mandali owners, milkmen, shop owners and drivers across India.<br/>
+        <span class="em">In</span> ગુજરાતી · हिन्दी · English.
+      </div>
+    </div>
+    <div class="cover-bottom">
+      <div>
+        <div class="lbl">SUPPORT</div>
+        +91 94266 98106 · support@milkgo.in<br/>
+        https://milkgo.in
+      </div>
+      <div class="v">
+        <div class="lbl">VERSION</div>
+        1.0 · April 2026<br/>
+        © 2026 MilkGo by DivineXion
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ABOUT + TOC -->
+<!-- ============================================================ -->
+<section class="toc-page">
+  <h1 class="toc-title">📖 About This Guide</h1>
+  <p>This manual is a complete, friendly walkthrough of MilkGo. It covers what every screen does, how to use it day‑to‑day, what to tell your customers, and how to handle common problems.</p>
+
+  <h2>👀 Who should read which chapters</h2>
+  <table>
+    <tr><th>If you are</th><th>Read in order</th></tr>
+    <tr><td>🆕 First‑time owner</td><td>1 → 6, then 8 → 22</td></tr>
+    <tr><td>📅 Already running for a month</td><td>7 (Monthly Closing), 24 (Pro Tips)</td></tr>
+    <tr><td>🚚 About to onboard a driver</td><td>18 (Drivers), then 28 (Driver Card)</td></tr>
+    <tr><td>🔒 Worried about data / privacy</td><td>26 (Data &amp; Privacy)</td></tr>
+    <tr><td>💎 Comparing plans</td><td>27 (Plan Comparison)</td></tr>
+  </table>
+
+  <h2>🎯 Conventions used</h2>
+  <ul>
+    <li>🟢 <strong>Action</strong> you should do</li>
+    <li>💡 <strong>Tip</strong> — small habit that compounds</li>
+    <li>⚠️ <strong>Warning</strong> — pay attention</li>
+    <li>📱 <strong>Phone‑specific</strong> Android / mobile note</li>
+    <li>💬 <strong>WhatsApp</strong> behaviour</li>
+  </ul>
+
+  <h2>🔄 How this guide is updated</h2>
+  <p>We update this manual every time a major feature changes. The version number is on the cover. If your screen looks different, update the app from Play Store first, then check if you have the latest version of this guide.</p>
+
+  <h1 class="toc-title" style="margin-top:14mm;">🗂️ Table of Contents</h1>
+  <div class="toc-list">
+    <div class="toc-part">PART 1 · Understanding MilkGo</div>
+    <div class="toc-item"><span class="num">1.</span> Why MilkGo — Problems &amp; Solutions</div>
+    <div class="toc-item"><span class="num">2.</span> Benefits &amp; Savings</div>
+    <div class="toc-item"><span class="num">3.</span> Which Role Should I Pick?</div>
+
+    <div class="toc-part">PART 2 · Onboarding</div>
+    <div class="toc-item"><span class="num">4.</span> Getting Started</div>
+    <div class="toc-item"><span class="num">5.</span> A Day in the Life</div>
+    <div class="toc-item"><span class="num">6.</span> Migrating from Paper Khata</div>
+    <div class="toc-item"><span class="num">7.</span> Monthly Closing Workflow</div>
+
+    <div class="toc-part">PART 3 · Every Tab Explained</div>
+    <div class="toc-item"><span class="num">8.</span> Home (Dashboard)</div>
+    <div class="toc-item"><span class="num">9.</span> Customers</div>
+    <div class="toc-item"><span class="num">10.</span> Areas &amp; Societies</div>
+    <div class="toc-item"><span class="num">11.</span> Products</div>
+    <div class="toc-item"><span class="num">12.</span> Subscriptions</div>
+    <div class="toc-item"><span class="num">13.</span> Deliveries</div>
+    <div class="toc-item"><span class="num">14.</span> Counter (Walk‑in Sales)</div>
+    <div class="toc-item"><span class="num">15.</span> Billing / Khata</div>
+    <div class="toc-item"><span class="num">16.</span> Per‑Customer Khata View</div>
+    <div class="toc-item"><span class="num">17.</span> Payments</div>
+    <div class="toc-item"><span class="num">18.</span> Drivers &amp; Routes</div>
+    <div class="toc-item"><span class="num">19.</span> Reports &amp; Analytics</div>
+    <div class="toc-item"><span class="num">20.</span> WhatsApp Notifications</div>
+    <div class="toc-item"><span class="num">21.</span> NFC Card Tap (Premium)</div>
+    <div class="toc-item"><span class="num">22.</span> Settings &amp; Plan</div>
+
+    <div class="toc-part">PART 4 · Going Beyond</div>
+    <div class="toc-item"><span class="num">23.</span> Talking to Customers about WhatsApp</div>
+    <div class="toc-item"><span class="num">24.</span> Pro Tips &amp; Best Practices</div>
+    <div class="toc-item"><span class="num">25.</span> Account Security &amp; PIN</div>
+    <div class="toc-item"><span class="num">26.</span> Data, Privacy &amp; Backup</div>
+    <div class="toc-item"><span class="num">27.</span> Plan Comparison &amp; Upgrades</div>
+    <div class="toc-item"><span class="num">28.</span> Driver Quick Reference Card</div>
+    <div class="toc-item"><span class="num">29.</span> App Updates &amp; New Features</div>
+
+    <div class="toc-part">PART 5 · Reference</div>
+    <div class="toc-item"><span class="num">30.</span> Frequently Asked Questions</div>
+    <div class="toc-item"><span class="num">31.</span> Troubleshooting</div>
+    <div class="toc-item"><span class="num">32.</span> Glossary</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PART 1 -->
+<!-- ============================================================ -->
+<section class="part part-1">
+  <svg class="part-deco" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <path fill="white" d="M35 5 h30 v15 h-5 v8 c0 4 8 12 8 22 v70 c0 5 -3 8 -8 8 h-30 c-5 0 -8 -3 -8 -8 v-70 c0 -10 8 -18 8 -22 v-8 h-5 z"/>
+  </svg>
+  <div class="part-content">
+    <div class="part-eyebrow">PART · ONE</div>
+    <div class="part-title">Understanding<br/>MilkGo</div>
+    <div class="part-blurb">The story behind the app — the real problems dairy owners face every day, and how MilkGo solves each one.</div>
+    <div class="part-icons">🥛 · 📒 · 💬 · 💰</div>
+  </div>
+</section>
+
+<!-- Chapter 1 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER ONE</span>Why MilkGo · Problems &amp; Solutions</h1>
+<div class="hero-card">
+  <div class="quote">"Running a dairy business on a paper khata is hard."</div>
+  <div style="margin-top:6px;">Here are the everyday problems milkmen, mandalis, tabela owners and shop owners face — and how MilkGo fixes each one.</div>
+</div>
+
+<h3>📒 Problem 1 — Khata pages get lost, smudged, torn</h3>
+<p><strong>Before:</strong> Pencil entries in a register. By month‑end, you can't read who got how much milk on the 14th.</p>
+<p><strong>After:</strong> Every delivery is one tap on your phone. Saved instantly. Searchable forever.</p>
+
+<h3>📊 Problem 2 — Monthly billing takes 2–3 days</h3>
+<p><strong>Before:</strong> Sit at the table on the 1st of every month, add up 30 days × multiple products × 100+ customers + previous balance.</p>
+<p><strong>After:</strong> Tap "Generate All Bills". Done in seconds. Bills are also auto‑updated as you mark each delivery.</p>
+
+<h3>🤝 Problem 3 — Customer disputes</h3>
+<p><strong>Before:</strong> "I never got 1 L on the 14th." You have no proof. You either lose money or lose trust.</p>
+<p><strong>After:</strong> Every delivery sends a WhatsApp update to the customer the moment you mark it. They have proof. You have proof. No fight.</p>
+
+<h3>🌴 Problem 4 — Forgotten skips and pauses</h3>
+<p><strong>Before:</strong> Customer told you on the phone "skip Sunday". You forgot. Delivered anyway. Now both are confused.</p>
+<p><strong>After:</strong> Set "skip" with one swipe, or pause the subscription. Auto‑remembered. Customer also gets a WhatsApp note.</p>
+
+<h3>💸 Problem 5 — No idea who owes how much</h3>
+<p><strong>Before:</strong> Flip through 100 pages of khata to find pending dues. You always miss someone.</p>
+<p><strong>After:</strong> Customers tab shows pending balance next to every name, sorted by who owes most or who's overdue longest.</p>
+
+<h3>🚚 Problem 6 — Driver hand‑off mistakes</h3>
+<p><strong>Before:</strong> You hand a paper list to your driver. They tick wrong rows. Cash collected doesn't match.</p>
+<p><strong>After:</strong> Driver gets only their own route on their phone. Marks delivered / skipped on each card. You see it live.</p>
+
+<h3>🛒 Problem 7 — Counter sales mixed with monthly customers</h3>
+<p><strong>Before:</strong> Walk‑in cash gets written somewhere, monthly khata somewhere else. Totals don't tie.</p>
+<p><strong>After:</strong> Counter mode is a separate tab. Tap product → confirm → done. Today's counter sales total is always visible.</p>
+
+<h3>📱 Problem 8 — No proof for the customer</h3>
+<p><strong>Before:</strong> Customer asks "did you deliver yesterday?" — you have nothing to show them.</p>
+<p><strong>After:</strong> Customer's phone has every delivery on WhatsApp. They can scroll back any day they want.</p>
+
+<h3>💱 Problem 9 — Rate changes are messy</h3>
+<p><strong>Before:</strong> Cow milk goes from ₹60 to ₹65. Some entries still use ₹60. Disputes.</p>
+<p><strong>After:</strong> Change the rate on the product. New deliveries pick it up automatically. Past bills stay as they were.</p>
+
+<h3>📞 Problem 10 — Hours wasted chasing payment</h3>
+<p><strong>Before:</strong> Call 50 customers every week — half don't pick up.</p>
+<p><strong>After:</strong> Tap "Send All Reminders" — WhatsApp goes to every unpaid customer with the bill PDF and a "View Bill" button.</p>
+
+<h3>🌅 Problem 11 — Multi‑shift / multi‑product confusion</h3>
+<p><strong>Before:</strong> A family takes buffalo morning, cow evening, ghee weekly, paneer Sundays. You miss things.</p>
+<p><strong>After:</strong> One subscription per product. Frequencies (daily / alternate / weekly / custom). Morning, evening, or both. The app handles it.</p>
+
+<h3>📈 Problem 12 — No idea how the business is doing</h3>
+<p><strong>Before:</strong> "Did I make more this month than last month?" Nobody knows.</p>
+<p><strong>After:</strong> Reports tab shows revenue, collection rate, top customers, top products, shift split — with charts.</p>
+
+<!-- Chapter 2 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWO</span>Benefits &amp; Savings</h1>
+<p class="accent-caveat">Real value. Real numbers.</p>
+<p>Concrete value MilkGo brings — based on typical dairy business sizes.</p>
+
+<h2>⏱️ Time saved</h2>
+<ul>
+  <li><strong>Monthly billing</strong>: from 2 full days to under 5 minutes</li>
+  <li><strong>Daily deliveries</strong>: from 30 minutes of writing to 5 minutes of swiping</li>
+  <li><strong>Payment follow‑up</strong>: from 2 hours of phone calls per week to 1 minute of "Send All Reminders"</li>
+</ul>
+
+<h2>💰 Money saved &amp; earned</h2>
+<ul>
+  <li><strong>Fewer disputes</strong> because of WhatsApp delivery proof — typically saves ₹500–₹2,000 per month</li>
+  <li><strong>Faster collection</strong> because customers see the bill instantly. Owners report 5–15 days improvement in collection cycle</li>
+  <li><strong>No missed deliveries</strong> because subscriptions auto‑generate. No "I forgot to deliver to Patel sahab today"</li>
+</ul>
+
+<h2>🤝 Trust &amp; professionalism</h2>
+<ul>
+  <li>Customer gets a clean PDF bill on WhatsApp every month — looks like a proper business</li>
+  <li>Daily delivery receipts → customer sees you're organised</li>
+</ul>
+
+<h2>👨‍✈️ Driver accountability</h2>
+<ul>
+  <li>Drivers can only see their route. Owner sees every action live</li>
+  <li>Cash collection logged against the driver. End‑of‑day reconciliation in seconds</li>
+</ul>
+
+<h2>🌐 Multilingual reach</h2>
+<ul><li>Full Gujarati / Hindi / English. Customer's WhatsApp message comes in their language.</li></ul>
+
+<h2>📱 Mobile‑first</h2>
+<ul><li>Works on any Android phone. No computer needed. No software to install. No printer required.</li></ul>
+
+<h2>🆓 Free to start</h2>
+<ul>
+  <li>Free plan: add customers, track deliveries, generate bills</li>
+  <li>Paid plans add WhatsApp, more drivers, NFC, reports</li>
+</ul>
+
+<!-- Chapter 3 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER THREE</span>Which Role Should I Pick?</h1>
+<p>When you sign up, you choose a role. Pick the one closest to your real‑world setup.</p>
+<table>
+  <tr><th>Real‑world setup</th><th>Pick this role</th><th>Why</th></tr>
+  <tr><td>🐄 You own a dairy farm</td><td><span class="pill">Tabela Owner</span></td><td>Full app: deliveries, customers, billing, drivers, products, reports</td></tr>
+  <tr><td>🏪 You run a milk cooperative</td><td><span class="pill">Mandali Owner</span></td><td>Full app + counter for walk‑in customers</td></tr>
+  <tr><td>🛍️ You run a milk / dairy shop</td><td><span class="pill">Shop Owner</span></td><td>Counter‑first, lighter delivery flow</td></tr>
+  <tr><td>🥛 You're a solo doodhwala</td><td><span class="pill">Milkman</span></td><td>Delivery + customers + khata + reports</td></tr>
+  <tr><td>🚲 You only deliver someone else's route</td><td><span class="pill warn">Driver</span></td><td>Simple: today's deliveries on your phone</td></tr>
+</table>
+
+<h2>📋 Menu each role sees</h2>
+<ul>
+  <li><strong>Tabela / Mandali Owner</strong>: Home, Deliveries, Counter, Customers, Subscriptions, Areas, Billing, Reports, Products, Drivers, Settings</li>
+  <li><strong>Shop Owner</strong>: Home, Counter, Customers, Billing, Products, Reports, Settings</li>
+  <li><strong>Milkman</strong>: Home, Deliveries, Customers, Subscriptions, Products, Areas, Billing, Reports, Settings</li>
+  <li><strong>Driver</strong>: Home, Deliveries, Settings</li>
+</ul>
+<div class="callout info"><div class="icon">ℹ️</div><div>You can change role later by contacting support.</div></div>
+
+<!-- ============================================================ -->
+<!-- PART 2 -->
+<!-- ============================================================ -->
+<section class="part part-2">
+  <svg class="part-deco" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <path fill="white" d="M35 5 h30 v15 h-5 v8 c0 4 8 12 8 22 v70 c0 5 -3 8 -8 8 h-30 c-5 0 -8 -3 -8 -8 v-70 c0 -10 8 -18 8 -22 v-8 h-5 z"/>
+  </svg>
+  <div class="part-content">
+    <div class="part-eyebrow">PART · TWO</div>
+    <div class="part-title">Onboarding</div>
+    <div class="part-blurb">From the first time you open MilkGo to the smooth monthly closing workflow. Step by step, with examples from a real day.</div>
+    <div class="part-icons">🚀 · 🌅 · 📒 · 📅</div>
+  </div>
+</section>
+
+<!-- Chapter 4 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER FOUR</span>Getting Started</h1>
+<p class="accent-caveat">Sign up to first delivery in 30 minutes.</p>
+
+<h2>1️⃣ Open MilkGo</h2>
+<ul>
+  <li><strong>Web</strong>: https://milkgo.in on any phone or computer browser</li>
+  <li><strong>Android app</strong>: search "MilkGo" on Play Store, install</li>
+</ul>
+
+<h2>2️⃣ Login</h2>
+<ol class="steps">
+  <li>Enter your 10‑digit mobile number</li>
+  <li>Tap "Send OTP"</li>
+  <li>Enter the 6‑digit OTP from your SMS</li>
+  <li>New numbers get a short signup form. Existing users go to PIN setup.</li>
+</ol>
+
+<h2>3️⃣ Set your PIN</h2>
+<ul>
+  <li>Create an 8‑digit PIN</li>
+  <li>Re‑enter to confirm</li>
+  <li>This is what you'll use to open the app daily — faster than OTP every time</li>
+</ul>
+
+<h2>4️⃣ Pick role and language</h2>
+<ul>
+  <li>Tabela / Mandali / Shop / Milkman / Driver</li>
+  <li>ગુજરાતી / हिन्दी / English (changeable later in Settings)</li>
+</ul>
+
+<h2>5️⃣ Fill basic profile</h2>
+<ul>
+  <li>Full Name</li>
+  <li>Business / Dairy Name</li>
+  <li>City and Area</li>
+  <li>Done — you're in 🎉</li>
+</ul>
+
+<h2>🆓 Free trial</h2>
+<div class="callout success"><div class="icon">🎁</div><div>You start with a free trial. The dashboard banner shows your trial end date. To continue beyond trial, contact +91 94266 98106 or support@milkgo.in.</div></div>
+
+<h2>✅ First‑day setup checklist</h2>
+<ol class="steps">
+  <li><strong>Areas</strong> → add delivery localities (e.g. Vesu, Adajan, Piplod). Add the societies inside each area.</li>
+  <li><strong>Products</strong> → add products (e.g. Buffalo Milk ₹70/litre, Cow Milk ₹60/litre, Ghee, Paneer). Add Gujarati names too.</li>
+  <li><strong>Customers</strong> → add each customer with society + wing + flat. If they already owe you money on paper khata, fill "Opening Balance".</li>
+  <li><strong>Subscriptions</strong> → for each customer, set their daily milk (product + qty + shift + frequency).</li>
+  <li><strong>Deliveries</strong> → tap "Generate" on the Deliveries tab.</li>
+  <li><strong>Mark deliveries</strong> as you do your round.</li>
+</ol>
+<p class="accent-caveat">That's it. Bills will start appearing automatically by month‑end. ✨</p>
+
+<!-- Chapter 5 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER FIVE</span>A Day in the Life</h1>
+<div class="hero-card">
+  <div class="quote">"What does a typical day look like?"</div>
+  <div style="margin-top:6px;">Here's a realistic walkthrough for a milkman with 100 customers.</div>
+</div>
+
+<h2>🌅 5:30 AM — Open the app</h2>
+<ul>
+  <li>Enter your 8‑digit PIN</li>
+  <li>Dashboard greets you: "Good morning, Ramesh"</li>
+  <li>Today's Deliveries card shows "0 / 102 done"</li>
+</ul>
+
+<h2>📋 5:35 AM — Generate today's list</h2>
+<ul>
+  <li>Tap <strong>Deliveries</strong> at the bottom</li>
+  <li>Confirm date is today, shift is <strong>Morning</strong></li>
+  <li>If list is empty, tap <strong>Generate</strong> → "102 deliveries generated"</li>
+</ul>
+
+<h2>🚶 5:45 AM — Start the round</h2>
+<ul>
+  <li>Pick up the first society's milk crate</li>
+  <li>Open the app at the customer's door</li>
+  <li>Swipe right on their card → ✅ Done</li>
+  <li>💬 Customer's WhatsApp pings instantly with the delivery receipt</li>
+</ul>
+
+<h2>🎯 Special cases on the round</h2>
+<ul>
+  <li><strong>Customer not home</strong> → swipe left → tap <strong>Skip</strong> → reason "Not Home" → save</li>
+  <li><strong>Customer wants only 0.5 L instead of 1 L</strong> → tap <strong>Edit</strong> → change qty → status <strong>Partial</strong> → save</li>
+  <li><strong>Multi‑product customer</strong> → swipe right on the grouped card → all items mark Done in one swipe → 💬 ONE combined WhatsApp message</li>
+</ul>
+
+<h2>🏁 8:30 AM — Round done</h2>
+<ul>
+  <li>Open Deliveries → see <strong>Done 98 / Pending 0 / Skipped 4</strong></li>
+  <li>Tap the donut icon → see product‑wise quantities for stock reconciliation</li>
+</ul>
+
+<h2>🛒 11:00 AM — Counter walk‑ins</h2>
+<ul>
+  <li>Tap <strong>Counter</strong> → search customer → add products → Confirm Sale</li>
+  <li>Recent Sales list grows</li>
+</ul>
+
+<h2>🌆 5:30 PM — Evening round</h2>
+<ul>
+  <li>Same as morning, but switch the shift toggle to <strong>Evening</strong></li>
+  <li>Tap Generate if needed</li>
+</ul>
+
+<h2>🌙 9:00 PM — End of day</h2>
+<ul>
+  <li>Tap <strong>Reports</strong> → today's sales, deliveries, payment methods</li>
+  <li>Quick check of overdue customers list on the dashboard</li>
+  <li>Lock app</li>
+</ul>
+<p class="accent-caveat">No paperwork. No "let me write it down later". 😌</p>
+
+<!-- Chapter 6 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER SIX</span>Migrating from Paper Khata</h1>
+<p>You don't throw away the paper register on day one. You migrate cleanly.</p>
+
+<h2>📅 Step 0 — Pick a "switch‑over date"</h2>
+<p>Decide a date, say <strong>1 May 2026</strong>. From that date, everything goes into MilkGo. Before that date, paper.</p>
+
+<h2>📝 Step 1 — One evening: enter customers</h2>
+<ul>
+  <li>Open <strong>Customers</strong> → Add Customer</li>
+  <li>For each row in your paper khata: Name, phone, area, society, wing, flat</li>
+  <li><strong>Opening Balance</strong> = whatever they owe you as of 30 April. Most important field — carries old balance forward.</li>
+  <li>WhatsApp opt‑in if they're OK with it</li>
+</ul>
+<div class="callout tip"><div class="icon">💡</div><div>If you have 200 customers, plan 2–3 hours total.</div></div>
+
+<h2>🥛 Step 2 — Add products</h2>
+<p>All your products with rates as of switch‑over date.</p>
+
+<h2>🔁 Step 3 — Add subscriptions</h2>
+<p>For each customer, what they take daily — frequency, shift, qty, rate.</p>
+
+<h2>🧪 Step 4 — Test with one day</h2>
+<ul>
+  <li>On 1st May morning, <strong>Generate</strong> today's deliveries</li>
+  <li>Mark a few done as a test</li>
+  <li>Check the customer's WhatsApp message arrives correctly</li>
+</ul>
+
+<h2>📒 Step 5 — Run parallel for 2 weeks</h2>
+<ul>
+  <li>Keep writing in paper too, just to be safe</li>
+  <li>Cross‑check daily totals</li>
+  <li>After 2 weeks of clean match → close the paper register</li>
+</ul>
+
+<h2>📤 Step 6 — Generate the first bill on 1 June</h2>
+<ul>
+  <li>Tap <strong>Generate All Bills</strong></li>
+  <li>Bills include opening balance + May's deliveries + May's counter sales</li>
+  <li>Send via WhatsApp</li>
+</ul>
+
+<h2>⚠️ Common migration mistakes</h2>
+<div class="callout warn"><div class="icon">⚠️</div><div><strong>Forgetting opening balances</strong> → customers won't see old dues. Fix: edit each customer, fill Opening Balance.</div></div>
+<div class="callout warn"><div class="icon">⚠️</div><div><strong>Wrong rate</strong> → if you migrated mid rate change, double‑check.</div></div>
+<div class="callout warn"><div class="icon">⚠️</div><div><strong>Subscription start date in the past</strong> → MilkGo tries to generate deliveries for past days. Use today as start date.</div></div>
+
+<!-- Chapter 7 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER SEVEN</span>Monthly Closing Workflow</h1>
+<p class="accent-caveat">The 30 minutes that used to take 3 days.</p>
+
+<h2>📅 1st of the month — generate bills</h2>
+<ol class="steps">
+  <li>Open <strong>Billing / Khata</strong></li>
+  <li>Tap <strong>Generate All Bills</strong></li>
+  <li>The app creates one consolidated bill per customer with last month's deliveries + counter sales + previous unpaid balance</li>
+  <li>Confirmation: "84 customers billed" 🎉</li>
+</ol>
+
+<h2>📤 Same day — send all bills</h2>
+<ol class="steps">
+  <li>In the Billing tab, tap <strong>Send All Due</strong></li>
+  <li>Filter: pick last month, set minimum due if you want to skip tiny amounts</li>
+  <li>Preview customer list (ones without WhatsApp are flagged)</li>
+  <li>Tap <strong>Send 84 Bills</strong></li>
+  <li>Watch live progress: 84/84 sent ✓</li>
+  <li>Failed sends are listed separately so you can retry</li>
+</ol>
+
+<h2>🔔 7th — send reminders to non‑payers</h2>
+<ol class="steps">
+  <li>Billing → status filter "Generated" or "Partial"</li>
+  <li>Tap <strong>Send All Reminders</strong></li>
+  <li>Each reminder includes a "View Bill" button</li>
+  <li>Cooldown: same customer won't be reminded within 24 hours</li>
+</ol>
+
+<h2>💵 15th — collection day</h2>
+<ol class="steps">
+  <li>Reports → Customers → Top Overdue Customers</li>
+  <li>Call them in order — biggest dues first</li>
+  <li>Record each payment as it comes in (Quick Collect on the bill)</li>
+  <li>💬 Customer gets WhatsApp receipt automatically</li>
+</ol>
+
+<h2>📊 30th — review the month</h2>
+<ol class="steps">
+  <li>Reports → Overview → "Last Month"</li>
+  <li>Check Collection Rate. If under 80%, tighten reminders next month.</li>
+  <li>Check Top Customers — say thank you to your best ones</li>
+  <li>Check Product Breakdown — which products grew, which shrank</li>
+</ol>
+<p class="accent-caveat">That's your closing routine. Repeat every month. 🔁</p>
+
+<!-- ============================================================ -->
+<!-- PART 3 -->
+<!-- ============================================================ -->
+<section class="part part-3">
+  <svg class="part-deco" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <path fill="white" d="M35 5 h30 v15 h-5 v8 c0 4 8 12 8 22 v70 c0 5 -3 8 -8 8 h-30 c-5 0 -8 -3 -8 -8 v-70 c0 -10 8 -18 8 -22 v-8 h-5 z"/>
+  </svg>
+  <div class="part-content">
+    <div class="part-eyebrow">PART · THREE</div>
+    <div class="part-title">Every Tab,<br/>Explained</div>
+    <div class="part-blurb">A friendly walkthrough of every screen — what it's for, how to use it, and the small details that make it powerful.</div>
+    <div class="part-icons">🏠 · 👥 · 🥛 · 📋</div>
+  </div>
+</section>
+
+<!-- Chapter 8 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER EIGHT</span>Home (Dashboard)</h1>
+<h2>🎯 What it's for</h2>
+<p>A 3‑second look at your business — what's pending today, who owes money, quick links.</p>
+<h2>📍 Where to find it</h2>
+<p>First tab (Home icon) at the bottom, or "Home" in the menu.</p>
+<h2>👁️ What you see</h2>
+<ul>
+  <li><strong>Greeting</strong>: "Good morning, Ramesh" — changes by time of day</li>
+  <li><strong>Today's Deliveries</strong>: progress bar (e.g. "85 / 120 completed") — tap to jump into Deliveries</li>
+  <li><strong>Today's Sales</strong> (counter / shop): total ₹ collected, customers served, items sold</li>
+  <li><strong>Billing Overview</strong>: Billed / Collected / Due — current month</li>
+  <li><strong>Business Snapshot</strong>: total customers, products, active subscriptions</li>
+  <li><strong>Overdue Customers</strong>: customers whose payment is late</li>
+  <li><strong>Quick Actions</strong>: shortcuts to Deliveries, Customers, Billing, Subscriptions, Counter</li>
+  <li><strong>Plan banner</strong>: "Your plan expires on 30 May 2026"</li>
+</ul>
+<h2>💡 Tips</h2>
+<ul>
+  <li>Numbers refresh every time you open the app</li>
+  <li>Tap any card to go straight to that tab</li>
+</ul>
+
+<!-- Chapter 9 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER NINE</span>Customers</h1>
+<h2>🎯 What it's for</h2>
+<p>Your master customer list. Every customer is here.</p>
+<h2>📍 Where to find it</h2>
+<p>Bottom nav → Customers (people icon).</p>
+<h2>➕ How to add a customer</h2>
+<ol class="steps">
+  <li>Tap <strong>Add Customer</strong></li>
+  <li>Enter Name, Phone, Area, Society, Wing/Floor/Flat, Default product/qty/shift, Notes</li>
+  <li><strong>Customer Type</strong> — Delivery, Counter, or Both</li>
+  <li><strong>WhatsApp section</strong>: toggle "Enable WhatsApp" → ON; WhatsApp Number (leave empty if same as phone)</li>
+  <li><strong>Opening Balance</strong> — if migrating from paper khata</li>
+  <li>Save Customer, or <strong>Save &amp; Add Subscription</strong></li>
+</ol>
+<h2>🆔 Customer code</h2>
+<p>Auto code — <code>C100</code>, <code>C101</code>, <code>C102</code>… This is what your driver sees on the delivery card.</p>
+<h2>📂 Customer detail page</h2>
+<ul>
+  <li><strong>Info</strong> — phone, address, notes, edit</li>
+  <li><strong>Deliveries</strong> — every delivery with date, qty, status</li>
+  <li><strong>Pickups</strong> — counter / walk‑in purchases</li>
+  <li><strong>Sales</strong> — combined sales view</li>
+  <li><strong>Payments</strong> — every ₹ they've paid</li>
+  <li><strong>Billing</strong> — month‑wise khata, bill PDFs, generate bill</li>
+</ul>
+<h2>🔍 Filters &amp; search</h2>
+<ul>
+  <li>Search bar: code, name, phone, flat</li>
+  <li>Area filter</li>
+  <li>"Due Only" toggle</li>
+  <li>"Show Inactive" — see archived customers</li>
+</ul>
+<h2>🗃️ Archive / restore</h2>
+<p>Customers are never deleted — only archived. Tap trash → confirm. Restore by enabling "Show Inactive" → re‑activate.</p>
+<h2>📡 NFC link <span class="pill info">Premium</span></h2>
+<p>Customer detail → "Link NFC" → tap card to phone. At counter, tap card → customer auto‑selected.</p>
+
+<!-- Chapter 10 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TEN</span>Areas &amp; Societies</h1>
+<h2>🎯 What it's for</h2>
+<p>Group customers by where they live. Drivers run routes by area / society.</p>
+<h2>📍 Where to find it</h2>
+<p>Menu → Areas.</p>
+<h2>📌 Add an Area</h2>
+<ol class="steps">
+  <li>Tap "Add Area"</li>
+  <li>Name (e.g. "Vesu") and Gujarati name (e.g. "વેસુ")</li>
+  <li>Sort order — lower number shows first</li>
+  <li>Active toggle</li>
+  <li>Save</li>
+</ol>
+<h2>🏢 Add a Society inside an Area</h2>
+<ol class="steps">
+  <li>Open the area, tap "Add Society"</li>
+  <li>Society Name + Gujarati name</li>
+  <li>Address, Pincode</li>
+  <li><strong>Structure</strong> — Total Wings, Total Floors, Wing Names ("A, B, C" or "Tower 1, Tower 2")</li>
+  <li><strong>Access &amp; Security</strong> — Gate Open/Close, Watchman name+phone, Notes, Entry Rules</li>
+  <li><strong>Secretary</strong> — name and phone</li>
+  <li><strong>Delivery Preferences</strong> — Default delivery point: Door / Watchman / Society Gate</li>
+  <li>Save</li>
+</ol>
+<div class="callout info"><div class="icon">💡</div><div>Drivers see society notes when at that society's stop. Fewer "where do I leave the milk" questions.</div></div>
+
+<!-- Chapter 11 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER ELEVEN</span>Products</h1>
+<h2>🎯 What it's for</h2>
+<p>Your product catalog — milk, ghee, paneer, curd, buttermilk, cheese, cream.</p>
+<h2>📍 Where to find it</h2>
+<p>Menu → Products.</p>
+<h2>➕ Add a product</h2>
+<ol class="steps">
+  <li>Tap "Add Product"</li>
+  <li>Product Name (English) + Gujarati Name</li>
+  <li>Category — 🥛 Milk / 🧈 Ghee / 🧀 Paneer / 🥣 Curd / 🥤 Buttermilk / 🧀 Cheese / 🍮 Cream / 📦 Other</li>
+  <li>Unit — Litre / Kg / Piece / Packet / mL / Gram</li>
+  <li>Default Rate in ₹</li>
+  <li>Sort Order — controls grid order on Counter</li>
+  <li>Active toggle</li>
+  <li>Save</li>
+</ol>
+<h2>📐 Variants (sizes / packs)</h2>
+<ol class="steps">
+  <li>Open the parent product</li>
+  <li>Add Variant → name like "500g", set rate and unit</li>
+  <li>Save</li>
+</ol>
+<p>On Counter, tapping the parent opens a size picker.</p>
+<h2>💡 Tips</h2>
+<ul>
+  <li>Add Gujarati names — your customers' WhatsApp bills will use them</li>
+  <li>Use sort order to put bestsellers first</li>
+  <li>Set default rate carefully — auto‑fills new subscriptions and counter sales</li>
+</ul>
+
+<!-- Chapter 12 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWELVE</span>Subscriptions</h1>
+<div class="hero-card">
+  <div class="quote">"This is the heart of MilkGo."</div>
+  <div style="margin-top:6px;">A recurring delivery agreement — "Patel family — 1 L buffalo milk every morning". Set once, runs daily.</div>
+</div>
+<h2>📍 Where to find it</h2>
+<p>Menu → Subscriptions.</p>
+<h2>➕ Add a subscription</h2>
+<ol class="steps">
+  <li>Tap "Add"</li>
+  <li><strong>Customer</strong> — search by code, name or phone</li>
+  <li><strong>Product(s)</strong> — pick a product, set qty and rate. "+ Add Another Product" to bundle multiple in one subscription.</li>
+  <li><strong>Shift</strong> — Morning / Evening / Both</li>
+  <li><strong>Frequency</strong>: Daily / Alternate / Weekly / Custom (pick weekdays)</li>
+  <li><strong>Start date</strong> (defaults today) and optional <strong>End date</strong></li>
+  <li>Save</li>
+</ol>
+<h2>🎚️ Statuses</h2>
+<ul>
+  <li><span class="pill">Active</span> — delivering daily</li>
+  <li><span class="pill warn">Paused</span> — temporarily stopped (e.g. holiday). Resume anytime.</li>
+  <li><span class="pill info">Cancelled</span> — permanent stop</li>
+</ul>
+<h2>⏸️ Pause windows</h2>
+<p>Open subscription → set pause start / end → save. No deliveries generated for that range.</p>
+
+<!-- Chapter 13 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER THIRTEEN</span>Deliveries</h1>
+<p class="accent-caveat">The screen you'll use most.</p>
+<h2>🔁 Daily flow</h2>
+<ol class="steps">
+  <li>Pick the <strong>Date</strong> (defaults to today)</li>
+  <li>Pick the <strong>Shift</strong> — Morning or Evening</li>
+  <li>Tap <strong>Generate</strong> if list is empty</li>
+  <li>See all customers grouped by Area → Society → Customer</li>
+</ol>
+<h2>🃏 Each delivery card shows</h2>
+<ul>
+  <li>Customer code (C123) and name</li>
+  <li>Wing‑Flat (e.g. "A‑502")</li>
+  <li>Product name and quantity</li>
+  <li>Status icon: 🟡 pending · 🟢 delivered · 🔴 skipped · 🟠 partial</li>
+  <li>Quick action buttons (edit, skip)</li>
+</ul>
+<h2>👆 Swipe gestures</h2>
+<ul>
+  <li><strong>Swipe right</strong> → ✅ Done (or Undo if already done)</li>
+  <li><strong>Swipe left</strong> → shows two buttons: ✏️ Edit and ⏭️ Skip (or Undo if already skipped)</li>
+</ul>
+<h2>📦 Multi‑product customers</h2>
+<p>If one customer takes 3 products in one shift, the app shows ONE grouped card with all 3 inside. Swipe right → marks ALL three Done in one go and sends one combined WhatsApp message.</p>
+<h2>✏️ Edit a delivery</h2>
+<p>Tap the pencil (or swipe left → Edit). Change Status, Actual quantity, Skip reason (Not Home / Gate Locked / Customer Request / Holiday / Rain / Other), Notes. Save → customer gets a WhatsApp update.</p>
+<h2>🔒 Locked deliveries</h2>
+<p>Already in a finalised bill → can't change directly (lock icon). Edit the bill first, or contact support.</p>
+<h2>📊 Summary cards (top)</h2>
+<ul>
+  <li><strong>Done</strong> count / Total</li>
+  <li><strong>Pending</strong> count</li>
+  <li><strong>Skipped</strong> count</li>
+  <li><strong>Total Quantity</strong> in litres</li>
+</ul>
+<h2>💬 What goes to WhatsApp</h2>
+<ul>
+  <li>Every Done / Skip → one WhatsApp message</li>
+  <li>Every Undo → "delivery update reverted"</li>
+  <li>Every Edit save → updated WhatsApp message</li>
+  <li>Bulk delivery on a multi‑product customer → ONE combined message</li>
+</ul>
+
+<!-- Chapter 14 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER FOURTEEN</span>Counter (Walk‑in Sales)</h1>
+<h2>🎯 What it's for</h2>
+<p>Sell milk / dairy directly to anyone who walks in to your shop or mandali.</p>
+<h2>🛒 Record a sale</h2>
+<ol class="steps">
+  <li><strong>Search</strong> the customer (or NFC tap)</li>
+  <li>Customer's pending balance and "last purchase" appear</li>
+  <li>Tap products on the <strong>Product Grid</strong>; variants open a size picker</li>
+  <li><strong>+</strong> / <strong>−</strong> to change qty</li>
+  <li>Tap <strong>Confirm Sale</strong> — done. Bill auto‑updates.</li>
+</ol>
+<h2>📊 Today's Summary (top)</h2>
+<ul><li>Today's total sales (₹)</li><li>Customers served</li><li>Items sold</li></ul>
+<h2>📋 Sale Detail drawer</h2>
+<ul>
+  <li>Date, time, customer, line items, total</li>
+  <li><strong>Edit</strong> — change quantities, add/remove products</li>
+  <li><strong>Cancel Sale</strong> — reverses everything (paid bills auto‑reopen)</li>
+</ul>
+<h2>🔁 "Same as Last" button</h2>
+<p>Adds the same items as the customer's last purchase.</p>
+<h2>💬 WhatsApp toggle</h2>
+<p>A small switch above the cart — "Send WhatsApp update to customer". On by default if "Counter Update" pref is on.</p>
+<h2>💡 Tips</h2>
+<ul>
+  <li>Sort products by popularity — top‑sellers at position 1</li>
+  <li>Use NFC for regulars — 5 seconds per sale</li>
+  <li>Counter sales DON'T affect the delivery list</li>
+</ul>
+
+<!-- Chapter 15 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER FIFTEEN</span>Billing / Khata</h1>
+<h2>🎯 What it's for</h2>
+<p>Monthly bill for every customer, with paid / pending status, bill PDF, and WhatsApp send.</p>
+<h2>📑 Header</h2>
+<ul>
+  <li>Month picker</li>
+  <li>Status filter — All / Generated / Partial / Paid / Overdue</li>
+  <li>Search by name, code, bill number</li>
+  <li>Summary cards — Billed / Collected / Pending</li>
+</ul>
+<h2>⚡ Generate All Bills</h2>
+<p>One bill per customer for the chosen month, combining unbilled deliveries + counter sales + previous balance.</p>
+<h2>📄 Open one bill</h2>
+<ul>
+  <li>Line items (every product, qty, rate, amount)</li>
+  <li>Subtotal, Adjustment, Final Amount, Previous Balance, Total Due, Paid, Balance Due</li>
+  <li><strong>Payment History</strong> — all payments</li>
+  <li><strong>Quick Collect</strong> — full payment in one tap</li>
+  <li><strong>Record Payment</strong> — full payment form</li>
+  <li><strong>Send via WhatsApp</strong> — sends PDF to customer</li>
+</ul>
+<h2>🏷️ Bill statuses</h2>
+<p>
+  <span class="pill">Draft</span>
+  <span class="pill">Generated</span>
+  <span class="pill">Sent</span>
+  <span class="pill">Partial</span>
+  <span class="pill">Paid</span>
+  <span class="pill warn">Overdue</span>
+</p>
+<h2>📤 Bulk WhatsApp</h2>
+<ul>
+  <li><strong>Send All Due</strong> — pick filters, preview, send all bills as PDF</li>
+  <li><strong>Send All Reminders</strong> — for unpaid bills, send reminder. 24h cooldown per bill.</li>
+</ul>
+
+<!-- Chapter 16 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER SIXTEEN</span>Per‑Customer Khata View</h1>
+<h2>📍 Where to find it</h2>
+<p>Customers → tap any customer → "Billing" tab.</p>
+<h2>📅 Date Range presets</h2>
+<p>This Month, Last Month, Last 3 Months, Custom.</p>
+<h2>🗂️ Tabs inside Khata</h2>
+<ul>
+  <li><strong>Bills</strong> — every bill in the range</li>
+  <li><strong>Deliveries</strong> — daily delivery log, filter by status</li>
+  <li><strong>Pickups</strong> — counter sales for this customer</li>
+  <li><strong>Sales</strong> — combined daily view</li>
+  <li><strong>Products</strong> — month‑wise breakdown by product, qty, avg rate</li>
+</ul>
+<h2>⚡ Generate buttons</h2>
+<ul>
+  <li><strong>Generate All Unbilled</strong> — one bill for all pending deliveries + old balance</li>
+  <li><strong>Custom Date Range</strong> — bill for a specific period only</li>
+</ul>
+<h2>📊 Metrics</h2>
+<p>Total Billed, Total Paid, Balance Due, Overdue Days.</p>
+
+<!-- Chapter 17 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER SEVENTEEN</span>Payments</h1>
+<h2>🎯 What it's for</h2>
+<p>A single ledger of every ₹ that came in.</p>
+<h2>🔍 Filters</h2>
+<ul>
+  <li>Today / This Week / This Month / Custom</li>
+  <li>Search by customer</li>
+</ul>
+<h2>💵 Record a payment</h2>
+<ol class="steps">
+  <li>"Add Payment" or "Quick Collect" on a bill</li>
+  <li>Pick customer (if not pre‑filled)</li>
+  <li>Optional: link to a specific bill (otherwise becomes Advance)</li>
+  <li>Amount in ₹</li>
+  <li>Method — 💵 Cash / 📱 UPI / 🏦 Bank Transfer / 🧾 Cheque / 🌐 Online</li>
+  <li>Reference — UPI ID, cheque no., bank ref</li>
+  <li>Payment Date</li>
+  <li>Notes</li>
+  <li>Save</li>
+</ol>
+<h2>✅ After save</h2>
+<ul>
+  <li>Bill's amount paid up; balance due down</li>
+  <li>Full → "Paid"; partial → "Partial"</li>
+  <li>Customer's balance updated</li>
+  <li>💬 Customer gets a WhatsApp receipt (if enabled)</li>
+</ul>
+<h2>🗑️ Delete a payment</h2>
+<p>Tap → Delete → confirm. Bill auto‑reverses.</p>
+
+<!-- Chapter 18 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER EIGHTEEN</span>Drivers &amp; Routes</h1>
+<h2>👨‍✈️ Add a driver</h2>
+<ol class="steps">
+  <li>Name + Phone (10 digits)</li>
+  <li>Vehicle Type — 🏍️ Bike / 🛺 Auto / 🚐 Tempo / 🚛 Truck / 🚲 Bicycle / Other</li>
+  <li>License Plate</li>
+  <li><strong>Commission</strong>: None / Fixed Monthly / Per Delivery / Percentage</li>
+  <li>Active toggle</li>
+  <li>Save → app auto‑creates a login</li>
+</ol>
+<h2>🛣️ Add a route</h2>
+<ol class="steps">
+  <li>Route Name (e.g. "Vesu morning round")</li>
+  <li>Type — Delivery / Pickup / Both</li>
+  <li>Driver — assign one of your drivers</li>
+  <li>Shift — Morning / Evening / Both</li>
+  <li>Days of Week</li>
+  <li><strong>Stops</strong> — Areas + Societies</li>
+  <li>Save</li>
+</ol>
+<h2>📱 Driver dashboard</h2>
+<ul>
+  <li>Greeting + assigned routes</li>
+  <li>Today's date and shift</li>
+  <li>Filtered delivery list — only their stops</li>
+  <li>Same swipe gestures (Done / Skip / Edit)</li>
+</ul>
+<h2>🔐 Driver permissions</h2>
+<div class="callout success"><div class="icon">✅</div><div><strong>Can:</strong> mark deliveries done/skipped/partial, edit qty for partial, send WhatsApp updates.</div></div>
+<div class="callout warn"><div class="icon">🚫</div><div><strong>Cannot:</strong> see other drivers' work, add customers/products/subscriptions/bills/payments, change rates.</div></div>
+
+<!-- Chapter 19 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER NINETEEN</span>Reports &amp; Analytics</h1>
+<h2>📅 Date range</h2>
+<p>Top — This Month / Last Month / Last 3 Months / Custom.</p>
+<h2>📊 Tab 1 — Overview</h2>
+<ul>
+  <li>Total Revenue (₹)</li>
+  <li>Collected (₹) and Collection Rate (%)</li>
+  <li>Total Deliveries done</li>
+  <li>Active Customers</li>
+  <li>New Customers this period</li>
+</ul>
+<h2>🚚 Tab 2 — Deliveries</h2>
+<ul>
+  <li>Daily Deliveries (line chart)</li>
+  <li>Delivery by Status (donut)</li>
+  <li>Product Breakdown (bar)</li>
+  <li>Shift Split (morning vs evening)</li>
+  <li>Delivery Success Rate</li>
+</ul>
+<h2>💰 Tab 3 — Revenue</h2>
+<ul>
+  <li>Daily Sales chart</li>
+  <li>Revenue vs Collection</li>
+  <li>Payment Methods donut</li>
+</ul>
+<h2>👑 Tab 4 — Customers</h2>
+<ul>
+  <li>Top Customers by Revenue</li>
+  <li>Top Customers by Quantity</li>
+  <li>Top Overdue Customers</li>
+</ul>
+<h2>💡 Tips</h2>
+<ul>
+  <li>Compare "This Month" vs "Last Month"</li>
+  <li>Top Overdue list = your call list for the day</li>
+  <li>Watch Collection Rate. Below 80%, increase reminders.</li>
+</ul>
+
+<!-- Chapter 20 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY</span>WhatsApp Notifications</h1>
+<h2>🎯 What it's for</h2>
+<p>Send transactional WhatsApp messages — delivery updates, monthly bills, payment receipts, reminders. In their language.</p>
+
+<h2>🔐 Two layers of opt‑in</h2>
+<p><strong>Layer 1 — Owner level (you)</strong> — Settings → WhatsApp Notifications. Five toggles:</p>
+<ol class="steps">
+  <li><strong>Monthly bill</strong> — allow sending bill PDFs</li>
+  <li><strong>Delivery update</strong> — notify when delivery marked done / skipped / partial</li>
+  <li><strong>Counter / pickup update</strong> — notify when counter sale recorded</li>
+  <li><strong>Bill reminder</strong> — show "Remind" button on unpaid bills</li>
+  <li><strong>Payment received</strong> — send a receipt when payment recorded</li>
+</ol>
+<p><strong>Layer 2 — Customer level</strong> — each customer profile has a "WhatsApp Notifications" toggle. If either layer is OFF → no message.</p>
+
+<h2>📊 Monthly quota</h2>
+<ul>
+  <li>"This month's usage: 234 / 1000"</li>
+  <li>"Resets on the 1st of next month"</li>
+</ul>
+
+<h2>💬 Sample messages</h2>
+<blockquote>
+  ✅ <strong>Delivery completed</strong><br/>
+  <em>MilkGo Dairy</em> — Hello Ramesh Patel, Home Delivery<br/>
+  ✅ Buffalo Milk — 1 litre (₹70) · ✅ Cow Milk — 0.5 litre (₹30)<br/>
+  Total: ₹100 · 26 Apr 2026 · 7:30 AM<br/>
+  Thank you! 🙏
+</blockquote>
+<blockquote>
+  ✅ <strong>ડિલિવરી પૂરી થઈ</strong><br/>
+  <em>MilkGo Dairy</em> — નમસ્તે રમેશ પટેલ, હોમ ડિલિવરી<br/>
+  ✅ ભેંસ નું દૂધ — 1 લિટર (₹70) · ✅ ગાય નું દૂધ — 0.5 લિટર (₹30)<br/>
+  કુલ: ₹100 · 26 એપ્રિ 2026 · 7:30 AM<br/>
+  આભાર! 🙏
+</blockquote>
+
+<h2>📤 Bulk operations (Billing tab)</h2>
+<ul>
+  <li><strong>Send All Bills</strong> — preview, send all in one go, live progress</li>
+  <li><strong>Send All Reminders</strong> — 24h cooldown per bill</li>
+</ul>
+
+<h2>🚫 Why a message might NOT arrive</h2>
+<ol class="steps">
+  <li>Customer's whatsapp_notify is OFF</li>
+  <li>Owner toggle is OFF</li>
+  <li>Monthly quota is full</li>
+  <li>Customer has no valid phone</li>
+  <li>Plan doesn't include WhatsApp</li>
+</ol>
+
+<!-- Chapter 21 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY ONE</span>NFC Card Tap <span class="pill info" style="font-size:9pt;font-family:Poppins;letter-spacing:0.5px;">Premium</span></h1>
+<h2>🎯 What it's for</h2>
+<p>Tap a customer's NFC card on your phone → that customer is auto‑selected on Counter.</p>
+<h2>🔗 Link a card</h2>
+<ol class="steps">
+  <li>Customer detail → "Link NFC"</li>
+  <li>Tap the card to your phone</li>
+  <li>"NFC card written successfully!" 🎉</li>
+</ol>
+<h2>🛒 Use at the counter</h2>
+<ol class="steps">
+  <li>Counter screen with no customer → "NFC ready" badge</li>
+  <li>Tap card → customer auto‑selected → start adding products</li>
+</ol>
+<h2>🛠️ Troubleshooting</h2>
+<ul>
+  <li>"NFC is turned off" → enable in phone settings</li>
+  <li>"Card not linked" → link it first</li>
+  <li>"Failed to read" → hold card steady at back of phone for 2 seconds</li>
+</ul>
+
+<!-- Chapter 22 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY TWO</span>Settings &amp; Plan</h1>
+<h2>👤 Profile</h2>
+<p>Full Name, Business Name, City, Area, Address, Pincode. Edit → change → Save.</p>
+<h2>🔒 Security</h2>
+<p><strong>Change PIN</strong> → enter current → enter new → confirm new.</p>
+<h2>🌐 Language</h2>
+<p>ગુજરાતી / हिन्दी / English. Affects every screen and every WhatsApp template.</p>
+<h2>🎨 Appearance</h2>
+<p>☀️ Light / 🌙 Dark / 🌗 System theme.</p>
+<h2>🚪 Sign Out</h2>
+<p>PIN required again on next open.</p>
+<h2>💎 Plan / Upgrade</h2>
+<ul>
+  <li>Current plan and its limits</li>
+  <li>Usage (customers, products, drivers)</li>
+  <li>"Need a higher limit?" → support phone and email</li>
+  <li>WhatsApp messages remaining</li>
+</ul>
+<h2>🗑️ Delete Account</h2>
+<p>Bottom of Settings — "Delete Account" → confirm. Deactivates account. Restore via admin.</p>
+
+<!-- ============================================================ -->
+<!-- PART 4 -->
+<!-- ============================================================ -->
+<section class="part part-4">
+  <svg class="part-deco" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <path fill="white" d="M35 5 h30 v15 h-5 v8 c0 4 8 12 8 22 v70 c0 5 -3 8 -8 8 h-30 c-5 0 -8 -3 -8 -8 v-70 c0 -10 8 -18 8 -22 v-8 h-5 z"/>
+  </svg>
+  <div class="part-content">
+    <div class="part-eyebrow">PART · FOUR</div>
+    <div class="part-title">Going Beyond</div>
+    <div class="part-blurb">After the basics — pro tips, security, privacy, customer communication, and getting the most out of your plan.</div>
+    <div class="part-icons">🚀 · 🛡️ · 💬 · 💎</div>
+  </div>
+</section>
+
+<!-- Chapter 23 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY THREE</span>Talking to Your Customers about WhatsApp</h1>
+<h2>🆕 When you onboard a new customer</h2>
+<blockquote>"From today, you'll get a WhatsApp message from us every time we deliver, and one bill per month — automatically. No more pakka chits or paper bills. You can save the messages for your records. If you don't want WhatsApp, just tell me and I'll switch it off."</blockquote>
+<p class="accent-caveat">90% of customers will say "great". 👍</p>
+
+<h2>📣 Sample announcement to existing customers</h2>
+<h3>🇬🇧 English</h3>
+<blockquote>Hello! From 1 May, our dairy is going digital. You'll receive:<br/>✅ a daily delivery confirmation<br/>📄 a clean monthly bill (PDF)<br/>💵 a receipt when you pay<br/>All on this WhatsApp number. No spam — only your dairy updates.</blockquote>
+<h3>🇮🇳 Gujarati</h3>
+<blockquote>નમસ્તે! 1 મે થી અમારી ડેરી ડિજિટલ થાય છે. તમને મળશે:<br/>✅ રોજની ડિલિવરી પુષ્ટિ<br/>📄 દર મહિને સ્વચ્છ બિલ (PDF)<br/>💵 પેમેન્ટ બાદ રસીદ<br/>બધું આ WhatsApp નંબર પર. કોઈ સ્પામ નહીં.</blockquote>
+<h3>🇮🇳 Hindi</h3>
+<blockquote>नमस्ते! 1 मई से हमारी डेयरी डिजिटल हो रही है। आपको मिलेगा:<br/>✅ रोज़ का डिलीवरी कन्फर्मेशन<br/>📄 हर महीने साफ़ बिल (PDF)<br/>💵 पेमेंट के बाद रसीद<br/>सब इसी WhatsApp नंबर पर.</blockquote>
+
+<h2>🔕 What if a customer says "switch it off"?</h2>
+<p>Customer profile → turn off "Enable WhatsApp" → save.</p>
+
+<h2>❓ Common customer questions</h2>
+<ul>
+  <li><em>"Will I get spam?"</em> → No. Only delivery / bill / payment messages.</li>
+  <li><em>"What if I'm out of network?"</em> → WhatsApp queues; they get it when back online.</li>
+  <li><em>"Can my husband/wife also get the messages?"</em> → Set a shared WhatsApp Number.</li>
+  <li><em>"How do I pay?"</em> → UPI, cash, bank — bill PDF has your details.</li>
+</ul>
+
+<!-- Chapter 24 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY FOUR</span>Pro Tips &amp; Best Practices</h1>
+<h2>⚡ Speed tips</h2>
+<ul>
+  <li><strong>Sort products by popularity</strong> — bestseller at position 1 → fewer taps</li>
+  <li><strong>NFC for regulars</strong> — tap card → cart open → 5 seconds per sale</li>
+  <li><strong>Group multi‑product customers</strong> — one subscription with all products → mark whole family Done with one swipe</li>
+</ul>
+<h2>💰 Money tips</h2>
+<ul>
+  <li><strong>Send bills on the 1st, not the 5th</strong> — be first in their inbox</li>
+  <li><strong>Use "Bill reminder" instead of phone calls</strong> — time saved compounds</li>
+  <li><strong>Track Collection Rate monthly</strong> — below 80% = problem; above 95% = excellent</li>
+  <li><strong>Don't extend credit beyond 60 days</strong> — Customers tab → check Overdue Days</li>
+</ul>
+<h2>🤝 Trust tips</h2>
+<ul>
+  <li><strong>Tell every new customer "you'll get a WhatsApp every day"</strong> — sets expectations</li>
+  <li><strong>Don't disable customer's WhatsApp without asking</strong></li>
+  <li><strong>Call instead of text for big disputes</strong> — voice is for relationships</li>
+</ul>
+<h2>👨‍✈️ Driver tips</h2>
+<ul>
+  <li><strong>One driver = one route</strong> — don't share routes</li>
+  <li><strong>Per‑delivery commission keeps drivers motivated</strong> — try ₹5–₹10 per delivery</li>
+  <li><strong>Audit weekly</strong> — spot patterns</li>
+</ul>
+<h2>📱 Phone tips (Android)</h2>
+<ul>
+  <li>📱 Keep phone charged</li>
+  <li>📱 Auto‑lock to 1 minute, not 30 seconds</li>
+  <li>📱 Add MilkGo to home screen as a shortcut</li>
+</ul>
+<h2>💾 Backup tips</h2>
+<ul>
+  <li>💡 Once a quarter, request data export from support@milkgo.in</li>
+  <li>💡 Before changing phones, log out cleanly first</li>
+</ul>
+
+<!-- Chapter 25 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY FIVE</span>Account Security &amp; PIN</h1>
+<p>The 8‑digit PIN protects your business data.</p>
+<h2>🔐 Strong PIN</h2>
+<ul>
+  <li>Don't use 12345678, 11111111, or your phone number's last 8 digits</li>
+  <li>Don't use birth date</li>
+  <li>Mix non‑sequential numbers — e.g. 47196028</li>
+</ul>
+<h2>🤐 Don't share</h2>
+<div class="callout warn"><div class="icon">⚠️</div><div>Never share with driver, accountant, or family. Each person gets their own login.</div></div>
+<h2>❌ Wrong PIN attempts</h2>
+<p>After several wrong attempts, app locks for a few minutes. Wait, then try.</p>
+<h2>🔄 Forgot PIN</h2>
+<p>"Forgot PIN? Verify with OTP" → OTP → set new PIN.</p>
+<h2>🔁 Change PIN</h2>
+<p>Settings → Change PIN. <span class="accent-caveat">Change every 6 months.</span></p>
+<h2>📱 Phone lost / stolen</h2>
+<ol class="steps">
+  <li>Contact support@milkgo.in immediately — they can lock the account</li>
+  <li>Buy new phone, login with phone + OTP, set new PIN</li>
+</ol>
+<h2>🚪 Logout when handing over a phone</h2>
+<div class="callout warn"><div class="icon">⚠️</div><div>Always sign out before giving the phone away.</div></div>
+
+<!-- Chapter 26 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY SIX</span>Data, Privacy &amp; Backup</h1>
+<h2>☁️ Where your data lives</h2>
+<ul>
+  <li>Stored on Supabase cloud (PostgreSQL on AWS, daily backups)</li>
+  <li>Encrypted in transit (HTTPS) and at rest</li>
+</ul>
+<h2>👁️ Who can see it</h2>
+<ul>
+  <li><strong>You</strong> — full access</li>
+  <li><strong>Your drivers</strong> — only their assigned route's deliveries</li>
+  <li><strong>Support team</strong> — only with your written consent for a specific issue</li>
+  <li><strong>Nobody else</strong> — ever</li>
+</ul>
+<h2>💬 WhatsApp messages</h2>
+<ul>
+  <li>Routed through Meta's WhatsApp Business API</li>
+  <li>Meta sees the phone number and message content (standard for WhatsApp)</li>
+  <li>We don't share your customer list beyond phone numbers needed to send</li>
+</ul>
+<h2>📦 Your data is yours</h2>
+<ul>
+  <li>You own it</li>
+  <li>Export available — request via support@milkgo.in</li>
+  <li>Delete your account anytime — Settings → Delete Account</li>
+</ul>
+<h2>💾 Backups</h2>
+<ul>
+  <li>Daily automatic backups</li>
+  <li>30 days of snapshots</li>
+  <li>💡 Quarterly export to your own email for peace of mind</li>
+</ul>
+<h2>🚪 If MilkGo shuts down</h2>
+<ul>
+  <li>90‑day notice period</li>
+  <li>Export everything in CSV / JSON / PDF during those 90 days</li>
+</ul>
+<h2>📜 Compliance</h2>
+<ul>
+  <li>Data hosted in India / Asia regions</li>
+  <li>Compliant with Indian data protection laws (DPDP Act 2023)</li>
+</ul>
+
+<!-- Chapter 27 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY SEVEN</span>Plan Comparison &amp; When to Upgrade</h1>
+<h2>🆓 Free Plan — when it's enough</h2>
+<ul>
+  <li>Up to roughly 25 customers</li>
+  <li>Manual bills (no WhatsApp)</li>
+  <li>Single shop / single owner</li>
+</ul>
+<h2>💎 Paid plans — when you need them</h2>
+<p>Upgrade when ANY of these is true:</p>
+<ol class="steps">
+  <li>You hit your customer limit</li>
+  <li>You want WhatsApp for delivery / bills / reminders / receipts</li>
+  <li>You want to add drivers</li>
+  <li>You want NFC at the counter</li>
+  <li>You want detailed Reports &amp; Analytics</li>
+  <li>You run multiple branches</li>
+</ol>
+<h2>💭 Things to consider</h2>
+<ul>
+  <li>WhatsApp messages cost a small amount via Meta. Higher plans = higher monthly quota.</li>
+  <li>Drivers: per‑driver pricing on some plans</li>
+  <li>NFC: only on premium plans</li>
+</ul>
+<h2>📞 Call us before deciding</h2>
+<ul>
+  <li>More than 500 customers — custom plan suggested</li>
+  <li>Multi‑branch dairy — special configuration</li>
+  <li>API access for accountant integration — special plan</li>
+</ul>
+<h2>📲 Support</h2>
+<ul>
+  <li>Phone: +91 94266 98106 (Mon–Sat 9 AM – 7 PM IST)</li>
+  <li>Email: support@milkgo.in</li>
+  <li>WhatsApp Business: same phone</li>
+</ul>
+
+<!-- Chapter 28 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY EIGHT</span>Driver Quick Reference Card</h1>
+<div class="hero-card">
+  <div class="quote">"Owner: print this page and give it to every new driver."</div>
+</div>
+
+<h2>🔑 Login</h2>
+<ol class="steps">
+  <li>Open MilkGo</li>
+  <li>Phone number → OTP → set 8‑digit PIN</li>
+  <li>Done</li>
+</ol>
+<h2>📅 Every day</h2>
+<ol class="steps">
+  <li>Tap <strong>Home</strong> → see your route name and today's count</li>
+  <li>Tap <strong>Deliveries</strong> → see your stops grouped by area</li>
+  <li>Pick today's date and shift (Morning / Evening)</li>
+  <li>Tap <strong>Generate</strong> if list is empty</li>
+</ol>
+<h2>🚪 At each customer's door</h2>
+<ul>
+  <li>✅ Delivered correctly → swipe right</li>
+  <li>⏭️ Customer not home / gate locked → swipe left → Skip → reason</li>
+  <li>📉 Less milk than usual → swipe left → Edit → change qty → Partial → save</li>
+  <li>↩️ Made a mistake → swipe again → Undo</li>
+</ul>
+<h2>📦 Multi‑product customer</h2>
+<ul><li>Swipe right ONCE → all items mark Done together → one WhatsApp message</li></ul>
+<h2>🏁 After the round</h2>
+<ul>
+  <li>Top of screen: Done / Pending / Skipped / Total Quantity</li>
+  <li>Pending = 0 → round complete 🎉</li>
+</ul>
+<h2>💵 Cash collection</h2>
+<p>Customer pays cash? Tell the owner. Driver app doesn't accept payments.</p>
+<h2>🆘 Help</h2>
+<ul>
+  <li>Forgot PIN → "Forgot PIN? Verify with OTP"</li>
+  <li>Lost phone → call your owner immediately</li>
+  <li>App not working → check internet, force‑close and reopen</li>
+</ul>
+<h2>🚫 Don't</h2>
+<div class="callout warn"><div class="icon">⚠️</div><div>Don't share your PIN.<br/>Don't change customer information.<br/>Don't mark a delivery without actually delivering.</div></div>
+
+<!-- Chapter 29 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER TWENTY NINE</span>App Updates &amp; New Features</h1>
+<h2>🔄 How updates reach you</h2>
+<ul>
+  <li>📱 Android: Play Store auto‑updates</li>
+  <li>💻 Web: refreshes automatically when you reload</li>
+</ul>
+<h2>❓ Why updates matter</h2>
+<p>We push fixes and features regularly. Keep the app updated.</p>
+<h2>✅ How to know you're up to date</h2>
+<p>Settings → About → version. Compare with Play Store.</p>
+<h2>🟡 "App update available" banner</h2>
+<p>Tap → restart the app. Old versions can sometimes break with new server features.</p>
+<h2>🆕 Big new features</h2>
+<ul>
+  <li>In‑app banner</li>
+  <li>WhatsApp from us (only with consent)</li>
+  <li>Landing page (https://milkgo.in)</li>
+</ul>
+<h2>💌 Feature requests</h2>
+<p>Email support@milkgo.in with "Feature: ..." in subject. We read every one.</p>
+
+<!-- ============================================================ -->
+<!-- PART 5 -->
+<!-- ============================================================ -->
+<section class="part part-5">
+  <svg class="part-deco" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+    <path fill="white" d="M35 5 h30 v15 h-5 v8 c0 4 8 12 8 22 v70 c0 5 -3 8 -8 8 h-30 c-5 0 -8 -3 -8 -8 v-70 c0 -10 8 -18 8 -22 v-8 h-5 z"/>
+  </svg>
+  <div class="part-content">
+    <div class="part-eyebrow">PART · FIVE</div>
+    <div class="part-title">Reference</div>
+    <div class="part-blurb">FAQ, troubleshooting, and a glossary of every MilkGo term — for whenever you get stuck.</div>
+    <div class="part-icons">❓ · 🛠️ · 📚</div>
+  </div>
+</section>
+
+<!-- Chapter 30 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER THIRTY</span>Frequently Asked Questions</h1>
+<p><strong>Q: Is MilkGo free?</strong><br/>A: Every dairy gets a free trial. Paid plans unlock WhatsApp, more customers, drivers, NFC, reports.</p>
+<p><strong>Q: How do customers get the monthly bill?</strong><br/>A: Generate bill → MilkGo sends a WhatsApp message with bill summary + PDF attachment, in their language.</p>
+<p><strong>Q: Can my customers see delivery updates?</strong><br/>A: Yes — the moment you mark done / skipped / partial, MilkGo sends a WhatsApp delivery update.</p>
+<p><strong>Q: Does it work for milkmen / mandalis / tabela owners / shop owners?</strong><br/>A: Yes — every role gets a tailored screen.</p>
+<p><strong>Q: Can I add drivers?</strong><br/>A: Yes — assign routes; they get a simple delivery checklist on their phone.</p>
+<p><strong>Q: Available in Gujarati and Hindi?</strong><br/>A: Yes — every screen, button, and notification. WhatsApp messages also localise.</p>
+<p><strong>Q: Do I need internet?</strong><br/>A: Yes — works best with internet so deliveries sync instantly.</p>
+<p><strong>Q: How do I switch from paper khata?</strong><br/>A: Sign up → add customers → fill "Opening Balance" → set subscriptions → start marking deliveries. Bills auto‑generate.</p>
+<p><strong>Q: What if my plan expires?</strong><br/>A: Banner before expiry. After expiry, no app access until renewed. Contact support.</p>
+<p><strong>Q: Can I export my data?</strong><br/>A: Yes — contact support@milkgo.in.</p>
+<p><strong>Q: Two people on the same account?</strong><br/>A: No — each business is one account. Add drivers or extra users instead.</p>
+<p><strong>Q: Customer's phone is not on WhatsApp. What happens?</strong><br/>A: No WhatsApp sent. Bill / delivery still recorded.</p>
+<p><strong>Q: Can I use MilkGo on a tablet?</strong><br/>A: Yes — same login. Larger screen helps for reports and bills.</p>
+<p><strong>Q: Two phones see the same data?</strong><br/>A: Yes — owner phone, driver phone, accountant browser — all real‑time.</p>
+<p><strong>Q: Does MilkGo print physical bills?</strong><br/>A: Open a bill → it's a clean PDF you can attach to WhatsApp / Gmail / Bluetooth printer.</p>
+<p><strong>Q: Phone breaks tomorrow?</strong><br/>A: New Android phone → login with number + PIN → all data is there. Nothing stored on phone itself.</p>
+<p><strong>Q: Can I customize the bill format?</strong><br/>A: Currently fixed. Custom logos and headers are coming. Tell us what you need.</p>
+<p><strong>Q: Will MilkGo work on weak network?</strong><br/>A: Works on 3G/4G/WiFi. Very weak network slows it down. Mark when you have signal.</p>
+<p><strong>Q: Desktop app?</strong><br/>A: The web app at https://milkgo.in works on desktop. Pin as Chrome shortcut.</p>
+
+<!-- Chapter 31 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER THIRTY ONE</span>Troubleshooting</h1>
+<h2>💬 "WhatsApp message didn't reach my customer"</h2>
+<ol class="steps">
+  <li>Customer's "WhatsApp Notifications" toggle ON?</li>
+  <li>Owner toggle ON in Settings → WhatsApp?</li>
+  <li>Used up monthly quota?</li>
+  <li>Customer has valid WhatsApp number?</li>
+  <li>Plan includes WhatsApp?</li>
+</ol>
+<p>If all five OK → support@milkgo.in with customer name and time.</p>
+<h2>📵 "App won't open"</h2>
+<ul>
+  <li>Pull down to refresh</li>
+  <li>Force‑close and reopen</li>
+  <li>Update from Play Store</li>
+  <li>Sign out and back in with PIN</li>
+</ul>
+<h2>🔑 "Forgot my PIN"</h2>
+<ul>
+  <li>PIN screen → "Forgot PIN? Verify with OTP"</li>
+  <li>Enter OTP from SMS → set new PIN</li>
+</ul>
+<h2>💵 "Bill amount looks wrong"</h2>
+<ul>
+  <li>Open bill → check line items</li>
+  <li>Check previous balance — it carries forward</li>
+  <li>If a delivery is locked, delete bill and regenerate</li>
+</ul>
+<h2>🕐 "Counter sale showing on wrong day"</h2>
+<p>App uses Asia/Kolkata (IST). Sale at 11:55 PM on 25th shows in 25th's totals. Fix phone clock if wrong.</p>
+<h2>🚚 "Driver can't see deliveries"</h2>
+<ul>
+  <li>Driver has a route assigned?</li>
+  <li>Route's "Days of Week" includes today?</li>
+  <li>Route's stops have customers?</li>
+  <li>Today's deliveries generated?</li>
+</ul>
+<h2>🚫 "Plan limit reached"</h2>
+<p>Tap banner → "View Plan" → contact support.</p>
+<h2>🗃️ "Deleted a customer by mistake"</h2>
+<p>Customers tab → "Show Inactive" → find them → re‑activate.</p>
+<h2>↩️ "Refund / reverse a payment"</h2>
+<p>Open payment → Delete → confirm. Bill auto‑reverses.</p>
+<h2>🎯 "Marked delivery for wrong customer"</h2>
+<p>Deliveries → find customer → swipe to Undo → mark correct customer.</p>
+<h2>📑 "Two bills for same customer same month"</h2>
+<p>Probably tapped Generate twice. Open one → delete it. Latest "generated_at" is the correct one.</p>
+<h2>📲 "WhatsApp says 'this number is not on WhatsApp'"</h2>
+<p>Check WhatsApp Number on customer profile. Try without country code (just 10 digits).</p>
+<h2>👨‍✈️ "Driver can't login"</h2>
+<ul>
+  <li>Added in Drivers tab, not Customers?</li>
+  <li>Use the phone number you entered when adding</li>
+  <li>First login is OTP, then they set PIN</li>
+</ul>
+<h2>📊 "Reports look weird"</h2>
+<p>Reports use IST. Fix phone clock if wrong.</p>
+<h2>🛒 "Can't see Counter tab"</h2>
+<p>Counter is for Tabela / Mandali / Shop / Super‑admin. Milkman role hides it.</p>
+
+<!-- Chapter 32 -->
+<h1 class="chapter"><span class="ch-num">CHAPTER THIRTY TWO</span>Glossary</h1>
+<table>
+  <tr><th>Term</th><th>Meaning</th></tr>
+  <tr><td><strong>Khata</strong></td><td>Running ledger of a customer's milk + payment history</td></tr>
+  <tr><td><strong>Tabela</strong></td><td>Dairy farm where milk is produced</td></tr>
+  <tr><td><strong>Mandali</strong></td><td>Milk cooperative / collection centre</td></tr>
+  <tr><td><strong>Doodhwala / Milkman</strong></td><td>Solo milk delivery person</td></tr>
+  <tr><td><strong>Subscription</strong></td><td>Recurring delivery agreement (product + qty + shift + frequency)</td></tr>
+  <tr><td><strong>Delivery</strong></td><td>One milk delivery row (pending → delivered / skipped / partial)</td></tr>
+  <tr><td><strong>Counter / Pickup</strong></td><td>Walk‑in sale at the shop or mandali</td></tr>
+  <tr><td><strong>Shift</strong></td><td>Morning or Evening</td></tr>
+  <tr><td><strong>Variant</strong></td><td>A size or pack of a product (500g, 1L, 250ml)</td></tr>
+  <tr><td><strong>Bill</strong></td><td>Monthly invoice from deliveries + counter sales + previous balance</td></tr>
+  <tr><td><strong>Bill statuses</strong></td><td>Draft → Generated → Sent → Paid / Partial / Overdue</td></tr>
+  <tr><td><strong>Payment Methods</strong></td><td>Cash / UPI / Bank Transfer / Cheque / Online</td></tr>
+  <tr><td><strong>Plan limits</strong></td><td>Max customers / products / drivers / WhatsApp messages</td></tr>
+  <tr><td><strong>Trial</strong></td><td>Your free first period</td></tr>
+  <tr><td><strong>NFC</strong></td><td>Near Field Communication; tap card to identify customer</td></tr>
+  <tr><td><strong>Opening Balance</strong></td><td>Previous due carried forward from paper khata</td></tr>
+  <tr><td><strong>Advance Payment</strong></td><td>Payment with no specific bill, becomes positive balance</td></tr>
+  <tr><td><strong>Auto‑bill</strong></td><td>Automatic bill update as deliveries / sales / payments are recorded</td></tr>
+  <tr><td><strong>Route</strong></td><td>A delivery path (areas + societies) assigned to a driver</td></tr>
+  <tr><td><strong>PIN</strong></td><td>Your 8‑digit lock code for the app</td></tr>
+  <tr><td><strong>OTP</strong></td><td>One‑time password sent on SMS during first login or PIN reset</td></tr>
+  <tr><td><strong>Quota</strong></td><td>Monthly WhatsApp message limit on your plan</td></tr>
+  <tr><td><strong>Opt‑in</strong></td><td>Customer's permission to receive WhatsApp messages</td></tr>
+</table>
+
+<div class="end-note">
+  <div class="head">🥛 End of Manual</div>
+  <p>For anything else: <strong>+91 94266 98106</strong> · <strong>support@milkgo.in</strong> · <strong>https://milkgo.in</strong></p>
+  <p class="small">© 2026 MilkGo by DivineXion · Made in India 🇮🇳</p>
+  <div class="sig">— Thank you for choosing MilkGo —</div>
+</div>
+
+</body>
+</html>
